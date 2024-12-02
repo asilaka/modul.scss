@@ -1,0 +1,52 @@
+.dress {
+  text-transform: uppercase;
+  color: black;
+  font-size: 48px;
+  text-align: center;
+  margin-top: 200px;
+}
+.menu {
+  background-color: #f0f0f0;
+}
+.cards {
+  display: grid;
+  grid-template-columns: 407px 684px;  // Define columns
+  grid-template-rows: auto;  // Rows will auto-adjust based on content
+  grid-template-areas: 
+    "card card1"  // First row, card spans both columns
+    "card2 card3"; // Second row, reverse order (card2 in the first column, card3 in the second)
+}
+
+$array: (
+  "card": "/public/image\ 11.png",
+  "card1": "/public/image\ 13.png",
+  "card2": "/public/image\ 12.png",
+  "card3": "/public/image\ 14.png",
+);
+
+@each $class, $img in $array {
+  .#{$class} {
+    background-image: url(#{$img});
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    width: 100%;
+    padding: 380px; 
+    height: 200px;
+  }
+
+  .#{$class} {
+    @if $class == "card" {
+      grid-area: card;
+    }
+    @else if $class == "card1" {
+      grid-area: card1;
+    }
+    @else if $class == "card2" {
+      grid-area: card2;
+    }
+    @else if $class == "card3" {
+      grid-area: card3;
+    }
+  }
+}

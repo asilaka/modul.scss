@@ -3,7 +3,7 @@ import s from './Category.module.scss'
 
 
 import Card from '../Card/Card'
-import Products from '/public/products.json'
+// import Products from '/public/products.json'
 
 
 const Category = () => {
@@ -14,9 +14,9 @@ const Category = () => {
 
 <div className={s.wrapper}>
 
-{Products.map(card => (
+{/* {Products.map(card => (
     <Card key={card.id} image={card.image} name={card.name} price={card.price}/>
-))}
+))} */}
 
 </div>
 
