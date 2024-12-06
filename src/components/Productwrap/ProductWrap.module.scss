@@ -30,9 +30,5 @@
     flex-direction: column;
     gap: 15px;
 
-    > div{
-        &:nth-child(1){
-            background-color: red;
-        }
-    }
+  
 }

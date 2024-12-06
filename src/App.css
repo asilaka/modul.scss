@@ -17,3 +17,24 @@
 body{
   background-color: #F2F0F1;
 }
+
+.react-tabs__tab-list{
+  display: flex;
+  justify-content: space-between;
+  border: none !important;
+}
+
+.react-tabs__tab{
+margin: 0 auto;
+text-align: center;
+opacity: 0.6;
+border-bottom: 1px solid grey !important;
+width: 100%;
+
+
+}
+.react-tabs__tab--selected{
+  opacity: 1;
+  border: none  !important;
+  border-bottom: 1px solid black !important;
+}
