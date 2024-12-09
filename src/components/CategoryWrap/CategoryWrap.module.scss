@@ -1,0 +1,36 @@
+.categoryWrap {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .filters {
+    flex: 1;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .products {
+    flex: 3;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  
+  .product {
+    text-align: center;
+    
+    img {
+        margin-top: 30px;
+      max-width: 100%;
+      border-radius: 5px;
+    }
+  }
+  .zaebal{
+    text-align: center;
+    margin-right: 800px;
+    margin-left: 200px;
+  }
