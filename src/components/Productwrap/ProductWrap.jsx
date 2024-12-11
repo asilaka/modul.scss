@@ -1,7 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import s from './ProductWrap.module.scss'
 
 const ProductWrap = ({ product }) => {
+    const [color, setColor] = useState(1); // This state will hold the selected color
+
+  const handleColorChange = (newColor) => {
+    setColor(newColor); // Update the state with the selected color
+  };
+    
   return (
     <>
     <section className={s.productWrap}>
@@ -17,23 +23,34 @@ const ProductWrap = ({ product }) => {
                 </div>
 
                 <div className={s.box}>
-                    <div>
+                    <div >
                         <h2>{product.name}</h2>
                         <h3>⭐⭐⭐⭐ 4/5</h3>
                         <div className={s.price}>
                             <b>{product.price} сум</b>
                             <s>{Math.floor(product.price * 1.1)} сум</s>
                         </div>
-                        <p></p>
+                         
+
+                        <p>This graphic t-shirt which is perfect for any occasion. Crafted from a soft and breathable fabric, it offers superior comfort and style.</p>
                     </div>
 
                     <div>
                         <p></p>
                         <div className={s.colors}>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </div>
+                            <div
+                                className={color === 1 ? s.red : s.black}
+                                onClick={() => handleColorChange(1)}
+                            ></div>
+                            <div
+                                className={color === 2 ? s.black : s.yellow}
+                                onClick={() => handleColorChange(2)}
+                            ></div>
+                            <div
+                                className={color === 3 ? s.yellow : s.red}
+                                onClick={() => handleColorChange(3)}
+                            ></div>
+                            </div>
                     </div>
 
                     <div>

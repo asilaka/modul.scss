@@ -31,4 +31,44 @@
     gap: 15px;
 
   
+h2{
+    font-size: 40px;
 }
+
+h3{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+}
+
+
+.price{
+    margin-bottom: 15px;
+}
+.colors{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.red {
+    padding: 20px;
+    background-color: red;
+    border-radius: 50%;
+    transition: background-color 1s;
+}
+
+.black{
+    padding: 20px;
+    background-color: black;
+    border-radius: 50%;
+}
+.yellow{
+    padding: 20px;
+    background-color: yellow;
+    border-radius: 50%;
+}
+
+  
+  
