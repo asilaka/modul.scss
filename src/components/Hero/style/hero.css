@@ -1,0 +1,33 @@
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.wrap h1 {
+  margin-bottom: 32px;
+  font-size: 50px;
+  margin-top: 120px;
+}
+.wrap p {
+  margin-bottom: 32px;
+  color: grey;
+}
+.wrap button {
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  width: 160px;
+  height: 40px;
+  border: none;
+}
+
+.wrap1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 50px;
+  gap: 20px;
+}
+.wrap1 h3 {
+  font-size: 40px;
+}

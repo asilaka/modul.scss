@@ -11,7 +11,7 @@ const TabsWrap = () => {
       <section className={s.tabswrap}>
         <div className="container">
           <Tabs>
-            <TabList>
+            <TabList className={s.Rate}>
               <Tab>Product Details</Tab>
               <Tab>Rating & Reviews</Tab>
               <Tab>FAQs</Tab>

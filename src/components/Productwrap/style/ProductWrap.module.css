@@ -1,0 +1,150 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+}
+@media (max-width: 800px) {
+  .wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+}
+@media (max-width: 800px) {
+  .images {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+}
+.images img {
+  width: 100%;
+  border-radius: 20px;
+  aspect-ratio: 1/1.3;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+}
+.images div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 18px;
+}
+@media (max-width: 800px) {
+  .images div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+}
+.box h2 {
+  font-size: 40px;
+}
+.box h3 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.price {
+  margin-bottom: 15px;
+}
+
+.colors {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.colors div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: black;
+}
+
+.btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 12px;
+}
+.btns button {
+  width: 80px;
+  height: 40px;
+  border-radius: 62px;
+  margin-top: 10px;
+  background-color: rgba(128, 128, 128, 0.147);
+  border: none;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 20px;
+}
+.btns .large {
+  background-color: black;
+  color: white;
+  border: none;
+}
+
+.count {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.count .Add {
+  width: 400px;
+  background-color: black;
+  height: 52px;
+  border-radius: 62px;
+  color: white;
+}
+@media (max-width: 800px) {
+  .count .Add {
+    width: 200px;
+    height: 40px;
+  }
+}
+.count div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 62px;
+  padding: 10px 20px;
+  background-color: rgba(128, 128, 128, 0.147);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 30px;
+}
+.count div button {
+  background: none;
+  border: none;
+}
