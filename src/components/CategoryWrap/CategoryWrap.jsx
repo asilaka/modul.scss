@@ -1,97 +1,162 @@
-import React from 'react'
-import s from './CategoryWrap.module.scss'
-import { Link } from 'react-router-dom'
+import React from "react";
+import s from "./CategoryWrap.module.scss";
+import PriceRangeSlider from "../PriceSwiper/PriceRangeSlider";
+import { useState } from "react";
+import Card from "../Card/Card";
+import Products from "/public/products.json";
+import { Link } from "react-router-dom";
+import Clothes from "../Clothes/Clothes";
+
 const CategoryWrap = () => {
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [priceRange, setPriceRange] = useState([0, 1500]);
+
+  // Фильтрация товаров по категории и диапазону цен
+  const filteredProducts = Products.filter((product) => {
+    const matchesCategory = selectedCategory
+      ? product.special === selectedCategory
+      : true;
+    const matchesPrice =
+      product.price >= priceRange[0] && product.price <= priceRange[1];
+      return matchesCategory && matchesPrice;
+  });
+
+  const colors = [
+    { id: 1, color: "#00C12B" },
+    { id: 2, color: "#c10000" },
+    { id: 3, color: "#F5DD06" },
+    { id: 4, color: "#F57906" },
+    { id: 5, color: "#06CAF5" },
+    { id: 6, color: "#063AF5" },
+    { id: 7, color: "#7D06F5" },
+    { id: 8, color: "#F506A4" },
+    { id: 9, color: "#FFFFFF" },
+    { id: 10, color: "#000000" },
+  ];
+
   return (
- <>
-<h3 className={s.zaebal}>Casual</h3>
-    <div className={s.categoryWrap}>
-        
-      <div className={s.filters}>
-        <h3>Filters</h3>
-        <ul>
-          <li>Price</li>
-          <li>Colors</li>
-          <li>Size</li>
-          <li>Dress Style</li>
-        </ul>
-      </div>
-      
-      
-      <div className={s.products}>
-        
-        <div className={s.product}>
-            
-          <img src="/public/Frame 33.png" alt="" />
-          <p>Gradient Graphic T-shirt</p>
-          <p>⭐⭐⭐⭐</p>
-          <p>$145</p>
-        </div>
-        
-        <div className={s.product}>
-          <img src="/public/image 9.png" alt="" />
-          <p>Polo with Tipping Details</p>
-          <p>⭐⭐⭐⭐</p>
-          <p>$180</p>
-        </div>
+    <>
+      <section className={s.categorywrap}>
+        <div className="container">
+          <div className={s.wrap}>
+            <div className={s.filter}>
+              <div className={s.header}>
+                <h3>Filters</h3>
+                <img src="" alt="" />
+              </div>
 
-        <div className={s.product}>
-          <img src="/public/image 10.png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
+              <Clothes onCategorySelect={setSelectedCategory} />
 
-        <div className={s.product}>
-          <img src="/public/Frame 71.png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
+              <PriceRangeSlider onChange={setPriceRange} />
 
-        <div className={s.product}>
-          <img src="/public/image 9 (1).png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
+              <div className={s.colors}>
+                <h3>
+                  Colors <img src="/more.svg" alt="" />
+                </h3>
+                <div className={s.colorsGrid}>
+                  {colors.map((item) => (
+                    <div
+                      key={item.id}
+                      onClick={() => setSelectedColor(item.id)}
+                      className={`${s.colorItem} ${
+                        selectedColor === item.id ? s.selected : ""
+                      }`}
+                      style={{ backgroundColor: item.color }}
+                    ></div>
+                  ))}
+                </div>
+              </div>
 
-        <div className={s.product}>
-          <img src="/public/image 10 (1).png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
-        
-        <div className={s.product}>
-          <img src="/public/image 7.png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
-        
-        <div className={s.product}>
-          <img src="/public/image 8.png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
-        
-        <div className={s.product}>
-          <img src="/public/image 9 (2).png" alt="" />
-          <p>Black Striped T-shirt</p>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>$120</p>
-        </div>
-        
+              <div className={s.size}>
+                <h3>
+                  Size <img src="/more.svg" alt="" />
+                </h3>
+                <div className={s.btns}>
+                  {[
+                    "XX-Small",
+                    "X-Small",
+                    "Small",
+                    "X-Large",
+                    "XX-Large",
+                    "Large",
+                    "3X-Large",
+                    "4X-Large",
+                  ].map((size, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setSelectedSize(index)}
+                      style={{
+                        backgroundColor: selectedSize === index ? "#000" : "",
+                        color: selectedSize === index ? "#fff" : "",
+                      }}
+                    >
+                      {size}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-        
-      </div>
-    </div>
-  
+              <div className={s.style}>
+                <div className={s.style__title}>
+                  <h3>
+                    Dress style <img src="/more.svg" alt="" />
+                  </h3>
+                  <p>
+                    Casual <img src="/more.svg" alt="" />
+                  </p>
+                  <p>
+                    Formal <img src="/more.svg" alt="" />
+                  </p>
+                  <p>
+                    Party <img src="/more.svg" alt="" />
+                  </p>
+                  <p>
+                    Gym <img src="/more.svg" alt="" />
+                  </p>
 
- </>
-  )
-}
+                  <button>Apply Filter</button>
+                </div>
+              </div>
+            </div>
 
-export default CategoryWrap
+            <div className={s.products}>
+              <div className={s.title}>
+                <h2>Filtered Products</h2>
+                <b>Sort by: Most Popular</b>
+              </div>
+              <section className={s.category}>
+                <div className={s.wrapper__products}>
+                  {filteredProducts.slice(0, 9).map((card) => (
+                    <Link
+                      key={card.id}
+                      to={`/product/${card.id}`}
+                      className={s.link}
+                    >
+                      <Card
+                        image={card.image}
+                        name={card.name}
+                        price={card.price}
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </section>
+
+              <div className={s.swiper}>
+                <button className={s.right}>←</button>
+                <h3>1</h3>
+                <button className={s.left}>→</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default CategoryWrap;
